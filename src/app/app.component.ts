@@ -6,7 +6,8 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'Rank TV Episodes by IMDb Rating';
+  // title = 'Rank TV Episodes by IMDb Rating';
+  title = '';
 }
 
 

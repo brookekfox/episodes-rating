@@ -1,7 +1,7 @@
 <div class="main">
   <div class="search-input-container">
     <input #box class="input-box" placeholder="Hit enter when you're done typing" (keyup.enter)="searchForEpisodes(box.value)">
-    <button id="submit-btn" (click)="searchForEpisodes()">Search</button>
+    <div id="submit-btn" (click)="searchForEpisodes()">Search</div>
   </div>
 
   <div class="suggestions-buttons">
@@ -24,6 +24,11 @@
       <div class="highest-lowest-episodes">
         <div>Highest rated episode: {{this.episodes[0].name}} ({{this.episodes[0].rating}})</div>
         <div>Lowest rated episode: {{this.episodes[this.episodes.length-1].name}} ({{this.episodes[this.episodes.length-1].rating}})</div>
+      </div>
+      <div class="statistics">
+        <div>Average rating: {{this.average}}</div>
+        <div>Range: {{this.range}}</div>
+        <div>Median: {{this.median}}</div>
       </div>
     </div>
   </div>

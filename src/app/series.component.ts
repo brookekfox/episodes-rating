@@ -34,6 +34,7 @@ export class SeriesComponent {
       show.episodes().then(episodes => {
         this.episodes = episodes.sort((ep1, ep2) => { return parseFloat(ep2.rating) - parseFloat(ep1.rating) });
         let sum:number = 0;
+        this.episodesRatings = [];
         for (let ep of episodes) {
           let rating:number = parseFloat(ep.rating);
           this.episodesRatings.push(rating);

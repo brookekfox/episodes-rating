@@ -1,17 +1,48 @@
+.main {
+  width: 80%;
+  margin: 0 auto;
+}
+
 .highest-lowest-episodes {
   color: rgba(0,0,0,0.4);
   font-size: 10pt;
   display: flex;
   flex-direction: row;
-  justify-content: center;
+  justify-content: space-around;
+  width: 75%;
+  margin: 20px auto;
 }
 
 .highest-lowest-episodes > div {
-  margin: 20px;
+  width: 45%;
+}
+
+.series-attributes {
+  display: flex;
+  justify-content: space-around;
+  flex-direction: row;
+  align-items: center;
+}
+
+.series-attributes--title {
+  max-width: calc(100% - 200px);
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.series-photo {
+  height: 300px;
+  width: 200px;
+  border-radius: 20px;
+  border: 1px solid #fff;
+  margin: 20px auto;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 .suggestions-buttons {
-  width: 40%;
+  width: 80%;
   margin: 0 auto;
   display: flex;
   flex-direction: row;
@@ -31,7 +62,7 @@
   text-transform: uppercase;
   letter-spacing: 1px;
   position: relative;
-  background: #00cc00;
+  background: #008000;
   color: #fff;
   -webkit-transition: none;
   -moz-transition: none;
@@ -40,7 +71,7 @@
 }
 
 .suggestions-buttons > button:hover {
-  background: #00e500;
+  background: #006400;
 }
 
 input {
@@ -90,4 +121,6 @@ tr:nth-child(even) {
   width: 75%;
   text-align: justify;
   margin: 0 auto;
+  font-size: 10pt;
+  font-family: inherit;
 }

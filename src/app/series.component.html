@@ -1,34 +1,42 @@
-<input #box class="input-box" placeholder="Hit enter when you're done typing" (keyup.enter)="searchForEpisodes(box.value)">
+<div class="main">
+  <input #box class="input-box" placeholder="Hit enter when you're done typing" (keyup.enter)="searchForEpisodes(box.value)">
 
-<div class="suggestions-buttons">
-  <button (click)="searchForEpisodes('the sopranos')">The Sopranos</button>
-  <button (click)="searchForEpisodes('gilmore girls')">Gilmore Girls</button>
-  <button (click)="searchForEpisodes('the office')">The Office</button>
-  <button (click)="searchForEpisodes('parks and recreation')">Parks and Recreation</button>
-  <button (click)="searchForEpisodes('30 rock')">30 Rock</button>
-  <button (click)="searchForEpisodes('arrested development')">Arrested Development</button>
-  <button (click)="searchForEpisodes('friday night lights')">Friday Night Lights</button>
-  <button (click)="searchForEpisodes('mad men')">Mad Men</button>
-</div>
-
-<h3 *ngIf="series" class="series-title">{{series.title}} <span>({{series.rating}})</span></h3>
-<div *ngIf="series" class="series-plot">{{series.plot}}</div>
-
-<div *ngIf="series">
-  <div class="highest-lowest-episodes">
-    <div>Highest rated episode: {{this.episodes[0].name}} ({{this.episodes[0].rating}})</div>
-    <div>Lowest rated episode: {{this.episodes[this.episodes.length-1].name}} ({{this.episodes[this.episodes.length-1].rating}})</div>
+  <div class="suggestions-buttons">
+    <button (click)="searchForEpisodes('the sopranos')">The Sopranos</button>
+    <button (click)="searchForEpisodes('gilmore girls')">Gilmore Girls</button>
+    <button (click)="searchForEpisodes('the office')">The Office</button>
+    <button (click)="searchForEpisodes('parks and recreation')">Parks and Recreation</button>
+    <button (click)="searchForEpisodes('30 rock')">30 Rock</button>
+    <button (click)="searchForEpisodes('arrested development')">Arrested Development</button>
+    <button (click)="searchForEpisodes('friday night lights')">Friday Night Lights</button>
+    <button (click)="searchForEpisodes('mad men')">Mad Men</button>
+    <button (click)="searchForEpisodes('breaking bad')">Breaking Bad</button>
   </div>
-  <table>
-    <tr>
-      <th>Episode Title</th>
-      <th>Number</th>
-      <th>Rating</th>
-    </tr>
-    <tr *ngFor="let ep of episodes">
-      <td>{{ep.name}}</td>
-      <td>{{ep.season}}.{{ep.episode}}</td>
-      <td>{{ep.rating}}</td>
-    </tr>
-  </table>
+
+  <div *ngIf="series" class="series-attributes">
+    <div class="series-photo" [ngStyle]="{'background-image': 'url(' + series.poster + ')'}"></div>
+    <div class="series-attributes--title">
+      <h3 class="series-title">{{series.title}} <span>({{series.rating}})</span></h3>
+      <div class="series-plot">{{series.plot}}</div>
+      <div class="highest-lowest-episodes">
+        <div>Highest rated episode: {{this.episodes[0].name}} ({{this.episodes[0].rating}})</div>
+        <div>Lowest rated episode: {{this.episodes[this.episodes.length-1].name}} ({{this.episodes[this.episodes.length-1].rating}})</div>
+      </div>
+    </div>
+  </div>
+
+  <div *ngIf="series">
+    <table>
+      <tr>
+        <th>Episode Title</th>
+        <th>Number</th>
+        <th>Rating</th>
+      </tr>
+      <tr *ngFor="let ep of episodes">
+        <td>{{ep.name}}</td>
+        <td>{{ep.season}}.{{ep.episode}}</td>
+        <td>{{ep.rating}}</td>
+      </tr>
+    </table>
+  </div>
 </div>

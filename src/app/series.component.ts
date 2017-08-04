@@ -36,9 +36,11 @@ export class SeriesComponent {
         let sum:number = 0;
         this.episodesRatings = [];
         for (let ep of episodes) {
-          let rating:number = parseFloat(ep.rating);
-          this.episodesRatings.push(rating);
-          sum += rating;
+          let rating:any = parseFloat(ep.rating);
+          if (!!rating) {
+            this.episodesRatings.push(rating);
+            sum += rating;
+          }
         }
         this.range = (this.episodesRatings[0] - this.episodesRatings[this.episodesRatings.length-1]).toFixed(1);
         this.average = (sum / this.episodesRatings.length).toFixed(2);

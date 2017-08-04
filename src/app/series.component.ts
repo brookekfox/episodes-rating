@@ -18,7 +18,7 @@ export class SeriesComponent {
   series:any;
   episodes:any;
 
-  searchForEpisodes(title: string) {
+  searchForEpisodes(title?: string) {
     if (!title) {
       let inputField = document.getElementsByClassName('input-box')[0] as HTMLInputElement;
       console.log(inputField)

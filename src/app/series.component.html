@@ -1,14 +1,16 @@
 <p>Hit enter when done typing</p>
 <input #box (keyup.enter)="searchForEpisodes(box.value)">
 
-<button (click)="searchForEpisodes('the sopranos')">The Sopranos</button>
-<button (click)="searchForEpisodes('gilmore girls')">Gilmore Girls</button>
-<button (click)="searchForEpisodes('the office')">The Office</button>
-<button (click)="searchForEpisodes('parks and recreation')">Parks and Recreation</button>
-<button (click)="searchForEpisodes('30 rock')">30 Rock</button>
-<button (click)="searchForEpisodes('Arrested Development')">Arrested Development</button>
-<button (click)="searchForEpisodes('friday night lights')">Friday Night Lights</button>
-<button (click)="searchForEpisodes('mad men')">Mad Men</button>
+<div>
+  <button (click)="searchForEpisodes('the sopranos')">The Sopranos</button>
+  <button (click)="searchForEpisodes('gilmore girls')">Gilmore Girls</button>
+  <button (click)="searchForEpisodes('the office')">The Office</button>
+  <button (click)="searchForEpisodes('parks and recreation')">Parks and Recreation</button>
+  <button (click)="searchForEpisodes('30 rock')">30 Rock</button>
+  <button (click)="searchForEpisodes('Arrested Development')">Arrested Development</button>
+  <button (click)="searchForEpisodes('friday night lights')">Friday Night Lights</button>
+  <button (click)="searchForEpisodes('mad men')">Mad Men</button>
+</div>
 
 <h3 *ngIf="series">{{series.title}} <span>({{series.rating}})</span></h3>
 <div *ngIf="series">{{series.plot}}</div>

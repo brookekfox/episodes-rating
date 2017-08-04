@@ -3,6 +3,10 @@
   margin: 0 auto;
 }
 
+#submit-btn {
+  visibility: hidden;
+}
+
 .highest-lowest-episodes {
   color: rgba(0,0,0,0.4);
   font-size: 10pt;
@@ -123,4 +127,79 @@ tr:nth-child(even) {
   margin: 0 auto;
   font-size: 10pt;
   font-family: inherit;
+}
+
+@media only screen and (min-device-width : 375px) and (max-device-width : 667px) and (orientation : portrait) {
+  input {
+    font-size: 12pt;
+  }
+  input::placeholder {
+    opacity: 0;
+  }
+  #submit-btn {
+    visibility: visible;
+    color: rgba(0,0,0,0.4);
+    font-size: 8pt;
+    text-align: center;
+  }
+  .suggestions-buttons {
+    width: 100%;
+  }
+  .suggestions-buttons > button {
+    font-size: 7px;
+    padding: 8px;
+    width: 80px;
+  }
+  .search-input-container {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+  .series-attributes {
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+    font-family: inherit;
+  }
+  .series-attributes--title {
+    max-width: 100%;
+    display: block;
+  }
+  .series-photo {
+    height: 150px;
+    width: 100px;
+    margin-bottom: 0;
+  }
+  .series-title {
+    width: 100%;
+    text-align: center;
+    font-size: 24pt;
+  }
+  .series-title > span {
+    font-size: 12pt;
+  }
+  .series-plot {
+    width: 100%;
+    text-align: justify;
+    margin: 0 auto;
+    font-size: 10pt;
+    font-family: inherit;
+  }
+  .highest-lowest-episodes {
+    font-size: 8pt;
+    width: 100%;
+  }
+  .highest-lowest-episodes > div {
+    width: 48%;
+    text-align: center;
+  }
+  table {
+    width: 100%;
+    font-size: 9pt;
+  }
+  td {
+    font-size: 9pt;
+    padding: 10px;
+  }
 }

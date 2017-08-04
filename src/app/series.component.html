@@ -1,5 +1,8 @@
 <div class="main">
-  <input #box class="input-box" placeholder="Hit enter when you're done typing" (keyup.enter)="searchForEpisodes(box.value)">
+  <div class="search-input-container">
+    <input #box class="input-box" placeholder="Hit enter when you're done typing" (keyup.enter)="searchForEpisodes(box.value)">
+    <button id="submit-btn" (click)="searchForEpisodes()">Search</button>
+  </div>
 
   <div class="suggestions-buttons">
     <button (click)="searchForEpisodes('the sopranos')">The Sopranos</button>

@@ -19,6 +19,11 @@ export class SeriesComponent {
   episodes:any;
 
   searchForEpisodes(title: string) {
+    if (!title) {
+      let inputField = document.getElementsByClassName('input-box')[0] as HTMLInputElement;
+      console.log(inputField)
+      title = inputField.value;
+    }
     imdb.search({ title: title }, { apiKey: API_KEY }).then(data => {
     var showId:string = data.results[0].type === 'series' ? data.results[0].imdbid : data.results[1].imdbid;
     imdb.getById(showId, {apiKey: API_KEY}).then(show => {

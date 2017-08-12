@@ -1,22 +1,22 @@
 <div class="main">
-  <div class="search-input-container">
-    <input #box class="input-box" placeholder="Hit enter when you're done typing" (keyup.enter)="searchForEpisodes(box.value)">
-    <div id="submit-btn" (click)="searchForEpisodes()">Search</div>
+  <div *ngIf="!series || !series.title" class="search-container">
+    <div class="search-input-container">
+      <input #box class="input-box" placeholder="Hit enter when you're done typing" (keyup.enter)="searchForEpisodes(box.value)">
+      <div id="submit-btn" (click)="searchForEpisodes()">Search</div>
+    </div>
+
+    <div class="suggestions-buttons-container">
+      <button (click)="searchForEpisodes('the sopranos')">The Sopranos</button>
+      <button (click)="searchForEpisodes('gilmore girls')">Gilmore Girls</button>
+      <button (click)="searchForEpisodes('the office')">The Office</button>
+      <button (click)="searchForEpisodes('parks and recreation')">Parks and Recreation</button>
+      <button (click)="searchForEpisodes('mad men')">Mad Men</button>
+      <button (click)="searchForEpisodes('breaking bad')">Breaking Bad</button>
+    </div>
   </div>
 
-  <div class="suggestions-buttons">
-    <button (click)="searchForEpisodes('the sopranos')">The Sopranos</button>
-    <button (click)="searchForEpisodes('gilmore girls')">Gilmore Girls</button>
-    <button (click)="searchForEpisodes('the office')">The Office</button>
-    <button (click)="searchForEpisodes('parks and recreation')">Parks and Recreation</button>
-    <button (click)="searchForEpisodes('30 rock')">30 Rock</button>
-    <button (click)="searchForEpisodes('arrested development')">Arrested Development</button>
-    <button (click)="searchForEpisodes('friday night lights')">Friday Night Lights</button>
-    <button (click)="searchForEpisodes('mad men')">Mad Men</button>
-    <button (click)="searchForEpisodes('breaking bad')">Breaking Bad</button>
-  </div>
-
-  <div *ngIf="series" class="series-attributes">
+  <div *ngIf="series && series.title" class="series-attributes">
+    <div class="series-attributes-clear-btn" (click)="clearSeries()"><span>Back</span></div>
     <div class="series-photo" [ngStyle]="{'background-image': 'url(' + series.poster + ')'}"></div>
     <div class="series-attributes--title">
       <h3 class="series-title">{{series.title}} <span>({{series.rating}})</span></h3>
@@ -33,7 +33,7 @@
     </div>
   </div>
 
-  <div *ngIf="series">
+  <div *ngIf="series && series.title">
     <table>
       <tr>
         <th>Episode Title</th>

@@ -31,7 +31,9 @@ export class SeriesComponent {
     var showId:string = data.results[0].type === 'series' ? data.results[0].imdbid : data.results[1].imdbid;
     imdb.getById(showId, {apiKey: API_KEY}).then(show => {
       this.series = show;
+      console.log(this.series);
       show.episodes().then(episodes => {
+        console.log(episodes);
         this.episodes = episodes.sort((ep1, ep2) => { return parseFloat(ep2.rating) - parseFloat(ep1.rating) });
         let sum:number = 0;
         this.episodesRatings = [];
@@ -50,7 +52,7 @@ export class SeriesComponent {
     });
   });
   }
-  
+
   medianOfArray(array:number[]) {
     let half:number = Math.floor(array.length / 2);
     if (array.length % 2) {
@@ -58,5 +60,9 @@ export class SeriesComponent {
     } else {
       return (array[half-1] + array[half]) / 2.0;
     }
+  }
+
+  clearSeries() {
+    this.series = {};
   }
 }

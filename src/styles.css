@@ -1,9 +1,13 @@
-@import url('https://fonts.googleapis.com/css?family=Roboto');
+@import url('https://fonts.googleapis.com/css?family=Open+Sans');
+@import url('https://fonts.googleapis.com/css?family=Crimson+Text');
 
 body, html {
-  font-family: 'Roboto';
-  background: #f0f0f0;
-  color: #008000;
+  font-family: 'Open Sans', monospace;
+  background: #ebebdf;
+  color: #f17862;
+  background-image: url('assets/background.png');
+  background-size: cover;
+  background-repeat: no-repeat;
 }
 
 h1 {

@@ -1,9 +1,21 @@
-/*colors [#c1e6e7, #f17862, #fdc83c, #ebebdf, #564a5d]*/
 /*greens [#008000, #006400]*/
 
-.main {
+.before-search {
   width: 80%;
+  min-height: 1000px;
   margin: 0 auto;
+  padding: 50px;
+  background-image: url('../assets/gray-background.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.after-search {
+  width: 80%;
+  min-height: 1000px;
+  margin: 0 auto;
+  padding: 50px;
+  background-color: #f0f0f0;
 }
 
 #submit-btn {
@@ -12,7 +24,7 @@
 
 .highest-lowest-episodes, .statistics {
   color: rgba(0,0,0,0.4);
-  font-size: 10pt;
+  font-size: 12pt;
   display: flex;
   flex-direction: row;
   justify-content: space-around;
@@ -21,12 +33,13 @@
 }
 
 .highest-lowest-episodes > div, .statistics > div {
-  width: 45%;
+  width: 30%;
+  text-align: center;
 }
 
-.series-attributes {
+.series-attributes, .series-episodes {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   flex-direction: row;
   align-items: center;
 }
@@ -69,7 +82,7 @@
   text-transform: uppercase;
   letter-spacing: 1px;
   position: relative;
-  background: #f17862;
+  background: #008000;
   color: #fff;
   -webkit-transition: none;
   -moz-transition: none;
@@ -79,7 +92,7 @@
 }
 
 .suggestions-buttons-container > button:hover {
-  background: #f17862;
+  background: #006400;
 }
 
 input {
@@ -88,7 +101,7 @@ input {
   padding: 0.5em 1em 0.5em 0.7em;
   width: calc(100% - 2em);
   border: 1px solid #fff;
-  background-color: #ebebdf;
+  background-color: #f0f0f0;
   color: rgba(0,0,0,0.4);
   font-size: 20pt;
   -webkit-transition: opacity 0.3s;
@@ -118,24 +131,46 @@ tr:nth-child(even) {
 .series-title {
   width: 100%;
   text-align: center;
-  font-size: 20pt;
+  font-size: 40pt;
+  text-transform: uppercase;
+  font-family: 'Amatic SC';
 }
 
 .series-title > span {
-  font-size: 12pt;
+  font-size: 14pt;
 }
 
 .series-plot {
   width: 75%;
   text-align: justify;
   margin: 0 auto;
-  font-size: 10pt;
+  font-size: 12pt;
   font-family: inherit;
+}
+.series-attributes-clear-btn {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  width: 70px;
+  height: 70px;
+  border-radius: 70px;
+  background-color: #008000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  cursor: pointer;
+}
+.series-attributes-clear-btn > span {
+  color: #f0f0f0;
+  font-size: 10pt;
+  text-transform: uppercase;
+  font-family: 'Amatic SC';
 }
 
 @media only screen and (min-device-width : 375px) and (max-device-width : 667px) and (orientation : portrait) {
   body {
-    background-color: #ebebdf;
+    background-color: #f0f0f0;
   }
   input {
     font-size: 12pt;
@@ -148,7 +183,7 @@ tr:nth-child(even) {
     color: rgba(0,0,0,0.4);
     font-size: 8pt;
     text-align: center;
-    background-color: #ebebdf;
+    background-color: #f0f0f0;
     border-radius: 10px;
     border: 1px solid #fff;
     height: 17px;
@@ -178,18 +213,19 @@ tr:nth-child(even) {
     width: 50px;
     height: 50px;
     border-radius: 50px;
-    background-color: #f17862;
+    background-color: #008000;
     display: flex;
     align-items: center;
     justify-content: center;
+    cursor: pointer;
   }
   .series-attributes-clear-btn > span {
-    color: #ebebdf;
+    color: #f0f0f0;
     font-size: 6pt;
     text-transform: uppercase;
     font-family: inherit;
   }
-  .series-attributes {
+  .series-attributes, .series-episodes {
     display: flex;
     flex-direction: column;
     width: 300px;
@@ -208,7 +244,9 @@ tr:nth-child(even) {
     width: 100%;
     text-align: center;
     font-size: 24pt;
-    color: #c1e6e7;
+    color: #008000;
+    text-transform: uppercase;
+    font-family: 'Amatic SC';
   }
   .series-title > span {
     font-size: 12pt;
@@ -218,12 +256,12 @@ tr:nth-child(even) {
     text-align: justify;
     margin: 0 auto;
     font-size: 10pt;
-    font-family: 'Crimson Text';
+    font-family: 'Amatic SC';
   }
   .highest-lowest-episodes, .statistics {
     font-size: 8pt;
     width: 100%;
-    font-family: 'Crimson Text';
+    font-family: 'Amatic SC';
   }
   .highest-lowest-episodes > div, .statistics > div {
     width: 48%;
@@ -236,9 +274,9 @@ tr:nth-child(even) {
   td {
     font-size: 9pt;
     padding: 10px;
-    font-family: 'Crimson Text';
+    font-family: inherit;
   }
   th {
-    color: #564a5d;
+    color: #008000;
   }
 }

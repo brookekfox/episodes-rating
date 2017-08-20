@@ -1,5 +1,5 @@
-<div class="main">
-  <div *ngIf="!series || !series.title" class="search-container">
+<div *ngIf="!series || !series.title" class="before-search">
+  <div class="search-container">
     <div class="search-input-container">
       <input #box class="input-box" placeholder="Hit enter when you're done typing" (keyup.enter)="searchForEpisodes(box.value)">
       <div id="submit-btn" (click)="searchForEpisodes()">Search</div>
@@ -14,8 +14,10 @@
       <button (click)="searchForEpisodes('breaking bad')">Breaking Bad</button>
     </div>
   </div>
+</div>
 
-  <div *ngIf="series && series.title" class="series-attributes">
+<div *ngIf="series && series.title" class="after-search">
+  <div class="series-attributes">
     <div class="series-attributes-clear-btn" (click)="clearSeries()"><span>Back</span></div>
     <div class="series-photo" [ngStyle]="{'background-image': 'url(' + series.poster + ')'}"></div>
     <div class="series-attributes--title">
@@ -33,7 +35,7 @@
     </div>
   </div>
 
-  <div *ngIf="series && series.title">
+  <div *ngIf="series && series.title" class="series-episodes">
     <table>
       <tr>
         <th>Episode Title</th>

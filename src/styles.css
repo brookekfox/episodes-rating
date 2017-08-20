@@ -1,13 +1,11 @@
-@import url('https://fonts.googleapis.com/css?family=Open+Sans');
-@import url('https://fonts.googleapis.com/css?family=Crimson+Text');
+@import url('https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300');
+@import url('https://fonts.googleapis.com/css?family=Amatic+SC');
 
 body, html {
-  font-family: 'Open Sans', monospace;
-  background: #ebebdf;
-  color: #f17862;
-  background-image: url('assets/background.png');
-  background-size: cover;
-  background-repeat: no-repeat;
+  font-family: 'Open Sans Condensed', monospace;
+  background: #f0f0f0;
+  color: #008000;
+  height: 100%;
 }
 
 h1 {

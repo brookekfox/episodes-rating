@@ -31,17 +31,16 @@ export class SeriesComponent {
     var showId:string = data.results[0].type === 'series' ? data.results[0].imdbid : data.results[1].imdbid;
     imdb.getById(showId, {apiKey: API_KEY}).then(show => {
       this.series = show;
-      console.log(this.series);
+      this.series.debuted = this.series.released.toString().split(' ').splice(0,4).join(' ');
       show.episodes().then(episodes => {
-        console.log(episodes);
         this.episodes = episodes.sort((ep1, ep2) => { return parseFloat(ep2.rating) - parseFloat(ep1.rating) });
-        let sum:number = 0;
+        let sum:any = 0;
         this.episodesRatings = [];
-        for (let ep of episodes) {
-          let rating:any = parseFloat(ep.rating);
-          if (!!rating) {
-            this.episodesRatings.push(rating);
-            sum += rating;
+        for (let ep of this.episodes) {
+          let episodeRating:any = parseFloat(ep.rating);
+          if (!!episodeRating) {
+            this.episodesRatings.push(episodeRating);
+            sum += episodeRating;
           }
         }
         this.range = (this.episodesRatings[0] - this.episodesRatings[this.episodesRatings.length-1]).toFixed(1);

@@ -21,7 +21,11 @@
     <div class="series-attributes-clear-btn" (click)="clearSeries()"><span>Back</span></div>
     <div class="series-photo" [ngStyle]="{'background-image': 'url(' + series.poster + ')'}"></div>
     <div class="series-attributes--title">
-      <h3 class="series-title">{{series.title}} <span>({{series.rating}})</span></h3>
+      <div class="series-title"><a [href]="series.imdburl">{{series.title}}</a> <span>({{series.rating}})</span></div>
+      <div class="series-metadata">
+        <div>Aired: {{series._year_data}}, Premiered: {{series.debuted}}</div>
+        <div>Awards: {{series.awards}}</div>
+      </div>
       <div class="series-plot">{{series.plot}}</div>
       <div class="highest-lowest-episodes">
         <div>Highest rated episode: {{this.episodes[0].name}} ({{this.episodes[0].rating}})</div>

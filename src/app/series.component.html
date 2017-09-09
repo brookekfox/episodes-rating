@@ -1,7 +1,7 @@
 <div *ngIf="!series || !series.title" class="before-search">
   <div class="search-container">
     <div class="search-input-container">
-      <input #box class="input-box" placeholder="Hit enter when you're done typing" (keyup.enter)="searchForEpisodes(box.value)">
+      <input #box class="input-box" placeholder="Hit enter to search" (keyup.enter)="searchForEpisodes(box.value)">
       <div id="submit-btn" (click)="searchForEpisodes()">Search</div>
     </div>
 
@@ -17,24 +17,35 @@
 </div>
 
 <div *ngIf="series && series.title" class="after-search">
+  <div class="series-title"><a [href]="series.imdburl">{{series.title}}</a> <span>({{series.rating}})</span></div>
   <div class="series-attributes">
     <div class="series-attributes-clear-btn" (click)="clearSeries()"><span>Back</span></div>
+    <div class="other-search-results" (click)="showOtherSearchResults()" *ngIf="searchResults.length > 1">
+      <span>Not the right show?</span>
+      <div class="other-search-results--more-shows" *ngIf="showOtherResults">
+        <ul>
+          <li *ngFor="let show of searchResults"
+              (click)=searchForEpisodes(show.title)>
+            {{show.title}}
+          </li>
+        </ul>
+      </div>
+    </div>
     <div class="series-photo" [ngStyle]="{'background-image': 'url(' + series.poster + ')'}"></div>
     <div class="series-attributes--title">
-      <div class="series-title"><a [href]="series.imdburl">{{series.title}}</a> <span>({{series.rating}})</span></div>
       <div class="series-metadata">
         <div>Aired: {{series._year_data}}, Premiered: {{series.debuted}}</div>
         <div>Awards: {{series.awards}}</div>
       </div>
       <div class="series-plot">{{series.plot}}</div>
       <div class="highest-lowest-episodes">
-        <div>Highest rated episode: {{this.episodes[0].name}} ({{this.episodes[0].rating}})</div>
-        <div>Lowest rated episode: {{this.episodes[this.episodes.length-1].name}} ({{this.episodes[this.episodes.length-1].rating}})</div>
+        <div>Highest rated episode: {{episodes[0].name}} ({{episodes[0].rating}})</div>
+        <div>Lowest rated episode: {{episodes[episodes.length-1].name}} ({{episodes[episodes.length-1].rating}})</div>
       </div>
       <div class="statistics">
-        <div>Average rating: {{this.average}}</div>
-        <div>Range: {{this.range}}</div>
-        <div>Median: {{this.median}}</div>
+        <div>Average rating: {{average}}</div>
+        <div>Range: {{range}}</div>
+        <div>Median: {{median}}</div>
       </div>
     </div>
   </div>
